@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Selection</title>
+    <!-- Add Bootstrap CSS link -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom orange and black theme */
+        body {
+            background-color: black;
+            color: orange;
+        }
+        /* Styling for checkboxes */
+        .form-check {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <h2>Course Selection</h2>
+        <form>
+            <div class="form-group">
+                <label for="semester">Select Semester:</label>
+                <select class="form-control" id="semester">
+                    <option value="1">Semester 1</option>
+                    <option value="2">Semester 2</option>
+                    <option value="3">Semester 3</option>
+                    <option value="4">Semester 4</option>
+                    <option value="5">Semester 5</option>
+                    <option value="6">Semester 6</option>
+                    <option value="7">Semester 7</option>
+                    <option value="8">Semester 8</option>
+                    <!-- Add options for other semesters -->
+                </select>
+            </div>
+            <div class="form-group" id="course-selection">
+                <!-- Courses for Semester 1 (You can dynamically update this with JavaScript) -->
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <!-- Add Bootstrap JS and jQuery for form functionality -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // JavaScript code to dynamically update checkboxes based on the selected semester
+        const courseSelection = document.getElementById("course-selection");
+        const semesterDropdown = document.getElementById("semester");
+
+    // Define course options for Semesters 3 to 8
+    const coursesBySemester = {
+        "1": ["Mathematics-I for CSE Stream", "Applied Physics", "Principles of Programming Using C", "Engineering Science Course-I", "Emerging Technology Course-I", "Communicative English", "Samskrutika Kannada/ Balake Kannada", "Indian Constitution", "Innovation and Design Thinking", "Scientific Foundations of Health"],
+        "2": ["Mathematics-II for CSE Stream", "Applied Chemistry for CSE Stream", "Computer-Aided Engineering Drawing", "Engineering Science Course-II", "Programming Language Course-II", "Emerging Technology Course-II", "Professional Writing Skills in English", "Communicative English", "Indian Constitution", "Samskrutika Kannada/ Balake Kannada", "Scientific Foundations of Health"],
+        "3": ["Mathematics for Computer Science", "Digital Design & Computer Organization", "Operating Systems", "Data Structures and Applications", "Data Structures Lab", "ESC/ETC/PLC", "Social Connect and Responsibility", "Ability Enhancement Course/Skill Enhancement Course - I", "National Service Scheme (NSS)", "Physical Education (PE) (Sports and Athletics)", "Yoga"],
+        "4": ["Analysis & Design of Algorithms", "Microcontrollers", "Database Management Systems", "Analysis & Design of Algorithms Lab", "Ability Enhancement Course/Skill Enhancement Course - IV", "Biology For Engineers", "Universal Human Values Course", "National Service Scheme (NSS)", "Physical Education (PE) (Sports and Athletics)", "Yoga"],
+        "5": ["Software Engineering & Project Management", "Computer Networks", "Theory of Computation", "Web Technology Lab", "Professional Elective Course", "Mini Project", "Research Methodology and IPR", "Environmental Studies", "National Service Scheme (NSS)", "Physical Education (PE) (Sports and Athletics)"],
+        "6": ["Cloud Computing (Open Stack / Google)", "Machine Learning", "Professional Elective Course", "Open Elective Course", "Project Phase I", "Machine Learning Lab", "Ability Enhancement Course/Skill Development Course V", "National Service Scheme (NSS)", "Yoga", "Physical Education (PE) (Sports and Athletics)"],
+        "7": ["Internet of Things", "Parallel Computing", "Cryptography & Network Security", "Professional Elective Course", "Open Elective Course", "Major Project Phase II", "Deep Learning", "Big Data Analytics", "Enterprise Data Warehousing", "Intro to DBMS", "Natural Language Processing"],
+        "8": ["Professional Elective through NPTEL", "Internship", "Open Elective through NPTEL"],
+    };
+
+        // Function to update checkboxes based on the selected semester
+        function updateCourseCheckboxes() {
+            const selectedSemester = semesterDropdown.value;
+            const courses = coursesBySemester[selectedSemester] || [];
+            courseSelection.innerHTML = "";
+
+            courses.forEach((course) => {
+                const checkbox = document.createElement("div");
+                checkbox.innerHTML = `
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" name="courses" value="${course}">
+                        <label class="form-check-label">${course}</label>
+                    </div>
+                `;
+                courseSelection.appendChild(checkbox);
+            });
+        }
+
+        // Attach an event listener to the semester dropdown
+        semesterDropdown.addEventListener("change", updateCourseCheckboxes);
+
+        // Initialize checkboxes based on the default semester
+        updateCourseCheckboxes();
+    </script>
+</body>
+</html>
