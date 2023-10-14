@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!-- Add Bootstrap CSS link -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom orange and black theme */
+        body {
+            background-color: black;
+            color: orange;
+        }
+        .card {
+            margin: 10px;
+        }
+        .container-white {
+            background-color: white; /* Set the container background to white */
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .btn-primary {
+            background-color: black; /* Set button background to black */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html">
+            <img src="logo.svg" width="30" height="30" class="d-inline-block align-top" alt="Logo">
+            Skill Swap
+        </a>
+    </nav>
+
+    <!-- Container for Cards -->
+    <div class="container mt-4 container-white">
+        <div class="row">
+            <!-- Card 1: Location Booking -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Location Booking</h5>
+                        <p class="card-text">Book your preferred location in Beehive for meetings and events.</p>
+                        <a href="beehive_booking.html" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Online Meeting Scheduler -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Online Meeting Scheduler</h5>
+                        <p class="card-text">Schedule online meetings with Zoom.</p>
+                        <a href="zoom_scheduler.html" class="btn btn-primary">Schedule Meeting</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Coursera Course Search & Chat -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Coursera Course Search & Chat</h5>
+                        <p class="card-text">Search for Coursera courses and send links in the chat.</p>
+                        <a href="coursera_search.html" class="btn btn-primary">Search Courses</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Voice Chat Box (Sample) -->
+    <div class="container mt-4 container-white">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Voice Chat Box</h5>
+                        <!-- You can integrate a voice chat solution here. -->
+                        <p class="card-text">Voice chat for code discussions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
