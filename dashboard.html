@@ -36,6 +36,9 @@
             font-weight: bold;
             font-size: 20px;
         }
+        .profile-college {
+            color: red;
+        }
         .profile-skills {
             color: #666;
             margin-top: 5px;
@@ -64,103 +67,116 @@
         </div>
     </nav>
 
-    <!-- Profile List -->
+    <!-- Filter Dropdown for Colleges -->
     <div class="container mt-4">
-        <div class="row">
-            <div class="col-12 col-md-6 col-lg-4 mb-4">
-                <div class="profile-card">
-                    <img src="profile1.jpg" alt="Profile Image" class="profile-img">
-                    <div class="profile-details">
-                        <div class="profile-name">Anuj Dwivedi</div>
-                        <div class="profile-skills">Web Development, JavaScript, HTML, CSS</div>
-                    </div>
-                    <a href="client_portal.html" class="btn btn-primary connect-button">Connect</a>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mb-4">
-                <div class="profile-card">
-                    <img src="profile2.jpg" alt="Profile Image" class="profile-img">
-                    <div class="profile-details">
-                        <div class="profile-name">Neha Amin</div>
-                        <div class="profile-skills">Graphic Design, Adobe Illustrator, Photoshop</div>
-                    </div>
-                    <a href="client_portal.html" class="btn btn-primary connect-button">Connect</a>
-                </div>
-            </div>
-              <div class="col-12 col-md-6 col-lg-4 mb-4">
-                <div class="profile-card">
-                    <img src="profile2.jpg" alt="Profile Image" class="profile-img">
-                    <div class="profile-details">
-                        <div class="profile-name">Babu Bhaia</div>
-                        <div class="profile-skills">Graphic Design, Adobe Illustrator, Photoshop</div>
-                    </div>
-                    <a href="client_portal.html" class="btn btn-primary connect-button">Connect</a>
-                </div>
-            </div>
-              <div class="col-12 col-md-6 col-lg-4 mb-4">
-                <div class="profile-card">
-                    <img src="profile2.jpg" alt="Profile Image" class="profile-img">
-                    <div class="profile-details">
-                        <div class="profile-name">Rameshhh</div>
-                        <div class="profile-skills">Graphic Design, Adobe Illustrator, Photoshop</div>
-                    </div>
-                    <a href="client_portal.html" class="btn btn-primary connect-button">Connect</a>
-                </div>
-            </div>
-              <div class="col-12 col-md-6 col-lg-4 mb-4">
-                <div class="profile-card">
-                    <img src="profile2.jpg" alt="Profile Image" class="profile-img">
-                    <div class="profile-details">
-                        <div class="profile-name">Dhinchak Pooja</div>
-                        <div class="profile-skills">Graphic Design, Adobe Illustrator, Photoshop</div>
-                    </div>
-                    <a href="client_portal.html" class="btn btn-primary connect-button">Connect</a>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-6 col-lg-4 mb-4">
-                <div class="profile-card">
-                    <img src="profile3.jpg" alt="Profile Image" class="profile-img">
-                    <div class="profile-details">
-                        <div class="profile-name">RAJ UTSO</div>
-                        <div class="profile-skills">Mobile App Development, Kotlin, Java</div>
-                    </div>
-                    <a href="client_portal.html" class="btn btn-primary connect-button">Connect</a>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mb-4">
-                <div class="profile-card">
-                    <img src="profile1.jpg" alt="Profile Image" class="profile-img">
-                    <div class="profile-details">
-                        <div class="profile-name">Gudu Bhia</div>
-                        <div class="profile-skills">Web Development, JavaScript, HTML, CSS</div>
-                    </div>
-                    <a href="client_portal.html" class="btn btn-primary connect-button">Connect</a>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mb-4">
-                <div class="profile-card">
-                    <img src="profile2.jpg" alt="Profile Image" class="profile-img">
-                    <div class="profile-details">
-                        <div class="profile-name">Gogo Sturo</div>
-                        <div class="profile-skills">Graphic Design, Adobe Illustrator, Photoshop</div>
-                    </div>
-                    <a href="client_portal.html" class="btn btn-primary connect-button">Connect</a>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mb-4">
-                <div class="profile-card">
-                    <img src="profile3.jpg" alt="Profile Image" class="profile-img">
-                    <div class="profile-details">
-                        <div class="profile-name">Ajayyy</div>
-                        <div class="profile-skills">Mobile App Development, Kotlin, Java</div>
-                    </div>
-                    <a href="client_portal.html" class="btn btn-primary connect-button">Connect</a>
-                </div>
-            </div>
-            </div>
+        <div class="form-group">
+            <label for="collegeFilter">Filter by College:</label>
+            <select id="collegeFilter" class="form-control">
+                <option value="all">All Colleges</option>
+                <option value="CMR Institute of Technology">CMR Institute of Technology</option>
+                <option value="Ramaiah Institute of Technology">Ramaiah Institute of Technology</option>
+                <option value="RV College of Engineering">RV College of Engineering</option>
+                <option value="ACS College of Engineering">ACS College of Engineering</option>
+                <option value="The Oxford College of Engineering">The Oxford College of Engineering</option>
+            </select>
         </div>
     </div>
+
+    <!-- Profile List -->
+    <div class="container mt-4">
+        <div class="row" id="profileList">
+            <!-- Profiles will be dynamically generated here based on the selected college filter -->
+        </div>
+    </div>
+
+ <!-- JavaScript for College Filtering -->
+<script>
+    const profiles = [
+        {
+            name: "Anuj Dwivedi",
+            college: "CMR Institute of Technology",
+            skills: "Web Development, JavaScript, HTML, CSS",
+        },
+        {
+            name: "Neha Amin",
+            college: "Ramaiah Institute of Technology",
+            skills: "Graphic Design, Adobe Illustrator, Photoshop",
+        },
+        {
+            name: "Babu Bhaia",
+            college: "RV College of Engineering",
+            skills: "Graphic Design, Adobe Illustrator, Photoshop",
+        },
+        {
+            name: "Rameshhh",
+            college: "ACS College of Engineering",
+            skills: "Graphic Design, Adobe Illustrator, Photoshop",
+        },
+        {
+            name: "Dhinchak Pooja",
+            college: "The Oxford College of Engineering",
+            skills: "Graphic Design, Adobe Illustrator, Photoshop",
+        },
+        {
+            name: "RAJ UTSO",
+            college: "CMR Institute of Technology",
+            skills: "Mobile App Development, Kotlin, Java",
+        },
+        {
+            name: "Gudu Bhia",
+            college: "Ramaiah Institute of Technology",
+            skills: "Web Development, JavaScript, HTML, CSS",
+        },
+        {
+            name: "Gogo Sturo",
+            college: "RV College of Engineering",
+            skills: "Graphic Design, Adobe Illustrator, Photoshop",
+        },
+        {
+            name: "Ajayyy",
+            college: "ACS College of Engineering",
+            skills: "Mobile App Development, Kotlin, Java",
+        },
+    ];
+
+    const collegeFilter = document.getElementById("collegeFilter");
+    const profileList = document.getElementById("profileList");
+
+    // Function to filter profiles
+    function filterProfiles() {
+        const selectedCollege = collegeFilter.value;
+
+        const filteredProfiles = selectedCollege === "all"
+            ? profiles
+            : profiles.filter(profile => profile.college === selectedCollege);
+
+        profileList.innerHTML = "";
+
+        filteredProfiles.forEach(profile => {
+            const profileCard = document.createElement("div");
+            profileCard.className = "col-12 col-md-6 col-lg-4 mb-4 profile-card";
+
+            profileCard.innerHTML = `
+                <img src="profile1.jpg" alt="Profile Image" class="profile-img">
+                <div class="profile-details">
+                    <div class="profile-name">${profile.name}</div>
+                    <div class="profile-college">${profile.college}</div>
+                    <div class="profile-skills">${profile.skills}</div>
+                </div>
+                <a href="client_portal.html" class="btn btn-primary connect-button">Connect</a>
+            `;
+
+            profileList.appendChild(profileCard);
+        });
+    }
+
+    // Call the filterProfiles function on page load
+    filterProfiles();
+
+    // Add an event listener for changes in the dropdown
+    collegeFilter.addEventListener("change", filterProfiles);
+</script>
+
 
     <!-- Add Bootstrap JS and jQuery for dropdown functionality -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
