@@ -46,9 +46,13 @@
     </nav>
 
     <div class="container mt-4">
-        <h2>Course Selection</h2>
+        <h2>Course Expertise Selction</h2>
         <form>
-            <div class="form-group">
+           <form action="process.php" method="post">
+    <div class="form-group">
+        <label for="usn">Enter USN:</label>
+        <input type="text" class="form-control" id="usn" name="usn" required>
+    </div>
                 <label for="semester">Select Semester:</label>
                 <select class="form-control" id="semester">
                     <option value="1">Semester 1</option>
